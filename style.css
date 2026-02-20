@@ -204,6 +204,7 @@ footer {
 
 .sectionStudents {
     display: none;
+    flex-direction: column;
     width: 100%;
     height: calc(100% - 175px);
 }
@@ -213,7 +214,7 @@ figcaption {
     display: flex;
     width: 100%;
     height: 50px;
-    background: #BCC2E5;;
+    background: #BCC2E5;
 }
 
 .containerStatus {
@@ -284,7 +285,7 @@ figcaption {
     background: #E5B657;
 }
 
-.purple{
+.purple {
     background-color: var(--primary_color);
 }
 
@@ -297,22 +298,21 @@ h2 {
 }
 
 .containerStudents {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    place-items: center;
     width: 100%;
-    height: calc(100% - 120px);
-    padding: 15px;
+    padding-bottom: 30px;
 }
 
 .cardStudent {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     width: 180px;
     height: 250px;
     margin-top: 20px;
+    padding-top: 10px;
     background-color: var(--primary_color);
 }
 
@@ -330,6 +330,94 @@ h2 {
     height: calc(100% - 160px);
     font-size: 18px;
     color: white;
+}
+
+.sectionProfile {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0px;
+    width: 100%;
+    height: calc(100dvh - 175px);
+}
+
+.dataStudent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    height: 45%;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.425);
+}
+
+.dataStudent img {
+    width: 75%;
+    height: auto;
+}
+
+.dataStudent span {
+    font-size: 18px;
+    color: var(--primary_color);
+    text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.247);
+    text-align: center;
+}
+
+.notes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 85%;
+    height: 45%;
+    padding: 0px 10px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.425);
+}
+
+.containerNote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 90%;
+    width: 30px;
+}
+
+.note {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary_color);
+}
+
+.containerBar {
+    display: flex;
+    align-items: end;
+    width: 60%;
+    height: 80%;
+    background-color: #EEEFF8;
+}
+
+.bar {
+    width: 100%;
+    height: 50%;
+    background-color: blue;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.651);
+}
+
+.nameClas {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary_color);
+}
+
+.hiddeSection {
+    display: none;
+}
+
+.showSection {
+    display: flex;
 }
 
 @media (min-width: 1280px) {
@@ -383,6 +471,39 @@ h2 {
     .course:hover {
         transform: scale(1.01);
         box-shadow: 8px 10px 2px #354ecacb;
+    }
+
+    .sectionStudents {
+        height: 100%;
+    }
+
+    .containerStudents {
+        grid-template-columns: repeat(5, 20%);
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sectionProfile {
+        flex-direction: row;
+    }
+
+    .dataStudent {
+        width: 30%;
+        height: 65%;
+    }
+
+    .dataStudent img {
+        width: 60%;
+        height: auto;
+    }
+
+    .dataStudent span {
+        font-size: 20px;
+    }
+
+    .notes {
+        width: 35%;
+        height: 65%;
     }
 
     footer {
