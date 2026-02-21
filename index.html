@@ -10,7 +10,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="./app.js" defer type="module"></script>
-    <title>Document</title>
+    <link rel="shortcut icon" href="./img/favicon-32x32.png" type="image/x-icon">
+    <title>LionSchool</title>
 </head>
 
 <body>
@@ -22,35 +23,33 @@
         </div>
         <div class="containerLogout">
             <img id="backPage" src="./img/back.png" alt="">
-            <span>Sair</span>
+            <span>Voltar</span>
         </div>
     </header>
 
     <main>
-        <section class="containerImgMain">
+        <section id="sectionMain" class="containerImgMain">
             <div>
                 <h1>Escolha um <span>curso</span> para gerenciar</h1>
                 <img src="./img/mainImgPC.png" alt="">
             </div>
-            <img class="imgStudant" src="./img/studant.png" alt="">
+            <img class="imgStudent" src="./img/studant.png" alt="">
         </section>
         <section class="choiceCourses"></section>
-        <section id="students" class="sectionStudents">
+        <section id="students" class="sectionStudents hiddeSection">
             <figcaption>
                 <div class="containerStatus">
                     <span id="status">Status</span>
-                    <ul id="listStatus">
-                        <li>
+                    <ul id="listStatus" class="statusList hiddeSection">
+                        <li id="liStatus">
                             <span>Status</span>
                             <img src="./img/confirmStatus.png" alt="">    
                         </li>
-                        <li>
+                        <li id="liFinalizado">
                             <span>Finalizado</span>
-                            <img src="" alt="">
                         </li>
-                        <li>
+                        <li id="liCursando">
                             <span>Cursando</span>
-                            <img src="" alt="">
                         </li>
                     </ul>
                 </div>
@@ -69,7 +68,7 @@
             <h2>Desenvolvimento de sistemas</h2>
             <div class="containerStudents"></div>
         </section>
-        <section id="studentProfile" class="sectionProfile">
+        <section id="studentProfile" class="sectionProfile hiddeSection">
             <div class="dataStudent">
                 <img src="" alt="">
                 <span></span>

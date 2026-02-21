@@ -6,7 +6,11 @@ const sectionCourses = document.querySelector('.choiceCourses')
 const sectionStudents = document.getElementById('students')
 const sectionProfile = document.getElementById('studentProfile')
 const backIcon = document.getElementById('backPage')
-let currentSection
+const statusSpan = document.getElementById('status')
+const statusLi = document.getElementById('liStatus')
+const finalizadoLi = document.getElementById('liFinalizado')
+const cursandoLi = document.getElementById('liCursando')
+let currentSection = sectionMain
 
 async function getCourses() {
     let url = `https://lion-school-backend.onrender.com/cursos`
@@ -55,11 +59,11 @@ async function showStudentsCourse() {
 
     sectionMain.classList.toggle('hiddeSection')
     sectionCourses.classList.toggle('hiddeSection')
-    sectionStudents.classList.toggle('showSection')
+    sectionStudents.classList.toggle('hiddeSection')
 
 
     let students = await getStudents(buttonClicked.dataset.id)
-
+    cleanContainer(containerStudents)
     students.forEach(createStudent)
 }
 
@@ -84,9 +88,8 @@ function createStudent(student) {
 }
 
 async function showPofileUser() {
-    sectionStudents.classList.toggle('showSection')
     sectionStudents.classList.toggle('hiddeSection')
-    sectionProfile.classList.toggle('showSection')
+    sectionProfile.classList.toggle('hiddeSection')
     const student = event.currentTarget
 
     let dataStudent = await getStudent(student.dataset.idStudent)
@@ -97,7 +100,8 @@ async function showPofileUser() {
     imgProfile.src = dataStudent.foto
     nameProfile.innerHTML = dataStudent.nome
 
-    console.log(dataStudent)
+    const notes = document.querySelector('.notes')
+    cleanContainer(notes)
     dataStudent.desempenho.forEach(createNotes)
 
     currentSection = sectionProfile
@@ -140,19 +144,53 @@ function createNotes(dataClas) {
 }
 
 function backPage() {
-    switch(currentSection.id) {
-        case "studens": {
+    if (currentSection.id == 'students') {
+        sectionMain.classList.toggle('hiddeSection')
+        sectionCourses.classList.toggle('hiddeSection')
+        sectionStudents.classList.toggle('hiddeSection')
 
-        }
+        currentSection = sectionMain
 
-        case "studentProfile": {
+    } else if (currentSection.id == 'studentProfile') {
+        sectionProfile.classList.toggle('hiddeSection')
+        sectionStudents.classList.toggle('hiddeSection')
 
-        }
+        currentSection = sectionStudents
 
-        break
+    } else {
+
+
+    }
+}
+
+function cleanContainer(container) {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
     }
 }
 
 backIcon.addEventListener('click', backPage)
+
+statusSpan.addEventListener('click', () => {
+    const list = document.getElementById('listStatus')
+    list.classList.toggle('hiddeSection')
+})
+
+
+const imgConfirm = document.querySelector('#liStatus img')
+statusLi.addEventListener('click', () => {
+    imgConfirm.style.transform = 'translateY(0px)'
+
+})
+
+finalizadoLi.addEventListener('click', () => {
+    imgConfirm.style.transform = 'translateY(38px)'
+
+})
+
+cursandoLi.addEventListener('click', () => {
+    imgConfirm.style.transform = 'translateY(76px)'
+
+})
 
 getCourses()

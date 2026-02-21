@@ -100,7 +100,7 @@ h1 span {
     color: var(--primary_color);
 }
 
-.imgStudant {
+.imgStudent {
     width: auto;
     height: 60%;
     margin-left: 5px;
@@ -203,7 +203,7 @@ footer {
 }
 
 .sectionStudents {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     height: calc(100% - 175px);
@@ -230,9 +230,9 @@ figcaption {
     color: var(--primary_color);
 }
 
-#listStatus {
+.statusList {
     position: absolute;
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 150px;
     height: 120px;
@@ -251,6 +251,10 @@ figcaption {
     padding: 0px 10px;
     color: white;
     font-size: 14px;
+}
+
+#liStatus img {
+    transition: 0.2s ease-in-out;
 }
 
 .containerlegend {
@@ -333,7 +337,7 @@ h2 {
 }
 
 .sectionProfile {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -416,8 +420,55 @@ h2 {
     display: none;
 }
 
-.showSection {
-    display: flex;
+@media (min-width: 768px) {
+    main {
+        height: calc(100dvh - 190px);
+    }
+
+    .containerImgMain div img {
+        width: 75%;
+    }
+
+    .imgStudent {
+        height: 80%;
+    }
+
+    .choiceCourses {
+        padding-top: 40px;
+    }
+
+    .sectionStudents {
+        height: 100%;
+    }
+
+    .containerStudents {
+        grid-template-columns: repeat(3, 33%);
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sectionProfile {
+        height: calc(100dvh - 280px);
+    }
+
+    .dataStudent {
+        width: 50%;
+        height: 40%;
+    }
+
+    .dataStudent img {
+        width: 60%;
+        height: auto;
+    }
+
+    .dataStudent span {
+        font-size: 20px;
+    }
+
+    .notes {
+        width: 80%;
+        height: 50%;
+    }
 }
 
 @media (min-width: 1280px) {
@@ -450,7 +501,22 @@ h2 {
         font-size: 46px;
     }
 
-    .imgStudant {
+    .cardStudent {
+        width: 230px;
+        height: 260px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .cardStudent:hover {
+        transform: scale(1.01);
+        box-shadow: 2px 2px 15px 2px black;
+    }
+
+    .cardStudent img {
+        height: 190px;
+    }
+
+    .imgStudent {
         height: 70%;
         margin-left: -8%;
     }
